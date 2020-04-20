@@ -12,7 +12,7 @@ import java.util.*;
  * 3) In a nutshell, the helper code allows you to         *
  *    to build a Binary Search Tree.                       *
  * 4) Jump to line 82 to see an example for how the        *
- *    helper code is used to test findLargestSmallerKey.   *
+ *    helper code is used to machineCoding1 findLargestSmallerKey.   *
  ***********************************************************/
 
 
@@ -89,7 +89,7 @@ class LargestSmallBSTKey {
     }
 
     /*********************************************
-     * Driver program to test above function     *
+     * Driver program to machineCoding1 above function     *
      *********************************************/
 
     public static void main(String[] args) {

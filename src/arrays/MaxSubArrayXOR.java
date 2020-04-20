@@ -96,7 +96,7 @@ class MaxSubArrayXOR
         return result;
     }
 
-    // Driver program to test above functions
+    // Driver program to machineCoding1 above functions
     public static void main(String args[])
     {
         int arr[] = {8, 1, 2, 12};
