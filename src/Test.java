@@ -1,10 +1,97 @@
-import java.util.HashMap;
-import java.util.Map;
-/*
+import com.sun.org.apache.bcel.internal.generic.INSTANCEOF;
+
+import java.util.*;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.BlockingQueue;
+
+
 
 public class Test {
 
     public static void main(String[] args){
+        int sum = 0;
+        for(int i=1; i<=19; i++){
+            System.out.println(i + ", " + (i+1) + " - " + (i ^ (i+1)));
+            sum = sum + (i ^ (i+1));
+        }
+        System.out.println(sum);
+
+        sum = 0;
+        for(int i=1; i<=10; i++){
+            System.out.println(i + ", " + (20-i+1) + " - " + (i ^ (20-i-1)));
+            sum = sum + i ^ (20-i+1);
+        }
+        System.out.println(sum);
+
+        System.out.println();
+        int[] nums = new int[]{10, 5, 6, 9, 20, 8};
+        Arrays.sort(nums);
+        sum = 0;
+        for(int i=0; i<nums.length-1; i=i+2){
+            sum = sum + (nums[i] ^ nums[i+1]);
+            System.out.println(nums[i] + ", " +  nums[i+1] + " - " + (nums[i] ^ nums[i+1]));
+        }
+
+        System.out.println(sum);
+        sum = 0;
+        for(int i=0; i<nums.length/2; i++){
+            sum = sum + (nums[i] ^ nums[nums.length - i - 1]);
+            System.out.println(nums[i] + ", " +  nums[nums.length - i - 1] + " - " + (nums[i] ^ nums[nums.length - i - 1]));
+        }
+        System.out.println(sum);
+
+
+        Set<Integer> set = new TreeSet<>();
+
+
+
+    }
+
+
+
+    static void test4(){
+        String s = "true";
+        Boolean val = Boolean.parseBoolean(s);
+        System.out.println(val);
+        s = "TRUE";
+        val = Boolean.parseBoolean(s);
+        System.out.println(val);
+        s = "mahesh";
+        val = Boolean.parseBoolean(s);
+        System.out.println(val);
+        s = "False";
+        val = Boolean.parseBoolean(s);
+        System.out.println(val);
+
+        System.out.println("true".equalsIgnoreCase("TrUe"));
+    }
+
+
+    static void test3(){
+        for(int i=0; i<100;i++){
+            System.out.println("creating thread - " + (i+1));
+            new ThreadClass().start();
+        }
+    }
+
+    static void test2() {
+
+        try {
+            BlockingQueue<String> bQueue = new ArrayBlockingQueue<String>(2);
+            bQueue.put("Java");
+            System.out.println("Item 1 inserted into BlockingQueue");
+            bQueue.put("JDK");
+            System.out.println("Item 2 is inserted on BlockingQueue");
+            bQueue.put("J2SE");
+            bQueue.offer("J2SE");
+            bQueue.add("J2SE");
+            System.out.println("Done");
+        }catch (InterruptedException e){
+            System.out.println(e);
+        }
+    }
+
+    static void test1(){
         int result = 0;
 
         Boolean b1 = new Boolean("TRUE");
@@ -19,8 +106,51 @@ public class Test {
         if (b2.equals(b3))result = result + 10000;
         System.out.println(result);
     }
+
 }
-*/
+
+class Singleton{
+    private static  Singleton INSTANCE;
+
+    private Singleton(){
+        System.out.println("Creating singleton object");
+    }
+
+    public static Singleton getINSTANCE(){
+        if(INSTANCE == null){
+            synchronized (Singleton.class){
+                if(INSTANCE == null){
+                    INSTANCE = new Singleton();
+                }
+            }
+        }
+        return INSTANCE;
+    }
+}
+
+class ThreadClass extends Thread{
+    public void run(){
+        try {
+            sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        Singleton obj = Singleton.getINSTANCE();
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*
@@ -315,8 +445,9 @@ class Source
 
 
 
-import java.util.*;
+
 /*
+import java.util.*;
 
 public class Test
 {
@@ -338,6 +469,7 @@ public class Test
     }
 }*/
 
+/*
 
 class Source
 {
@@ -349,4 +481,4 @@ class Source
         byte d = (byte) b;
         System.out.println(c + "\t"  + d);
     }
-}
+}*/

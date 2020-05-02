@@ -1,4 +1,4 @@
-package arrays;
+package bits;
 
 // Java program for a Trie based O(n) solution to
 // find max subarray XOR
