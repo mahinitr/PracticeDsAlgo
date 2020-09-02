@@ -41,7 +41,8 @@ public class Test {
         System.out.println(sum);
 
 
-        Set<Integer> set = new TreeSet<>();
+        Set<Integer> set = new HashSet<>();
+
 
 
 
